@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
-    public int lives { get; private set; }
+    public int lives = 3;
 
     private void Start()
     {
@@ -40,5 +40,30 @@ public class GameManager : MonoBehaviour
     private void ResetState()
     {
         this.pacman.ResetState();
+    }
+
+    private void SetLives(int lives)
+    {
+        this.lives = lives;
+    }
+
+    private void SetScore(int score)
+    {
+        this.score = score;
+    }
+
+
+    public void eatPellet(PelletLogic pellet)
+    {
+        pellet.gameObject.SetActive(false);
+        SetScore(this.score + pellet.points);
+        //Check if round is finished 
+    }
+
+    public void eatPowerUp(PowerUp powerUp)
+    {
+        eatPellet(powerUp);
+
+        //change ghost
     }
 }
