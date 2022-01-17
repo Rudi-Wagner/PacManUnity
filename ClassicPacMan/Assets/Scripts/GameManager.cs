@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
     public PacmanLogic pacman;
     public Transform pellets;
 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
+
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int lives = 3;
-
+    
     private void Start()
     {
         NewGame();
@@ -18,13 +21,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.anyKey) {
+        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Space)) {
             NewGame();
         }
     }
 
     private void NewGame()
     {
+        SetScore(0);
+        SetLives(3);
         NewRound();
     }
 
@@ -45,11 +50,18 @@ public class GameManager : MonoBehaviour
     private void SetLives(int lives)
     {
         this.lives = lives;
+        string txt = "Lives: ";
+        for(int i = 0; i < this.lives; i++)
+        {
+            txt += " <3 ";
+        }
+        this.livesText.text = txt;
     }
 
     private void SetScore(int score)
     {
         this.score = score;
+        this.scoreText.text = "Score: " + score.ToString();
     }
 
 
@@ -58,6 +70,23 @@ public class GameManager : MonoBehaviour
         pellet.gameObject.SetActive(false);
         SetScore(this.score + pellet.points);
         //Check if round is finished 
+        if(!remainingPellets())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 5.0f);
+        }
+    }
+
+    private bool remainingPellets()
+    {//Check if there are remaining pellets to eat.
+        foreach (Transform pellet in this.pellets) 
+        {
+            if(pellet.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void eatPowerUp(PowerUp powerUp)

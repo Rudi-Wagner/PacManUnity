@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1969175360821912387}
   - component: {fileID: 3158352853798117736}
   - component: {fileID: 8312888293756636461}
+  - component: {fileID: 805959095803101402}
   m_Layer: 8
   m_Name: BigPellet
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5539a5cab8e4b0479adf95423fa7c86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fa84d9beb9639245b6b4077902803db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,3 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e116d1c821734498dceeb589e8b564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: 10
+--- !u!114 &805959095803101402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131396875324916841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824908b24fd58c84296be726049e76aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doLoop: 1
+  sprites:
+  - {fileID: 21300000, guid: 3fa84d9beb9639245b6b4077902803db, type: 3}
+  - {fileID: 21300000, guid: d2ba799c1ca8b144ba11906c18afa2a6, type: 3}
+  - {fileID: 21300000, guid: 6fdbc52a45ce7e14aaab06a3359a874b, type: 3}
+  - {fileID: 21300000, guid: 8bd54239a231f4946ac01fe6de5f8155, type: 3}
+  - {fileID: 21300000, guid: 31a59d1fc98d92a47baebd5ab3564b8b, type: 3}
+  delay: 0.25
