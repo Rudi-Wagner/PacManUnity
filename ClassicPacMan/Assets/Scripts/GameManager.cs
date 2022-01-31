@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI gameOverText;
 
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
@@ -42,9 +43,36 @@ public class GameManager : MonoBehaviour
         ResetState();
     }
 
+    public void GhostEaten(Ghost ghost)
+    {
+        int points = ghost.points * this.ghostMultiplier;
+        SetScore(this.score + points);
+
+        this.ghostMultiplier++;
+    }
+
+    public void PacmanEaten()
+    {
+        //this.pacman.DeathSequence();
+        this.pacman.gameObject.SetActive(false);
+        this.gameOverText.text = "GAME OVER!";
+        SetLives(this.lives - 1);
+
+        if (this.lives > 0) {
+            Invoke(nameof(ResetState), 3.0f);
+        } else {
+            //GameOver();
+        }
+    }
+
     private void ResetState()
     {
         this.pacman.ResetState();
+        this.gameOverText.text = "";
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
+            this.ghosts[i].Reset();
+        }
     }
 
     private void SetLives(int lives)
@@ -53,7 +81,7 @@ public class GameManager : MonoBehaviour
         string txt = "Lives: ";
         for(int i = 0; i < this.lives; i++)
         {
-            txt += " <3 ";
+            txt += "<3";
         }
         this.livesText.text = txt;
     }

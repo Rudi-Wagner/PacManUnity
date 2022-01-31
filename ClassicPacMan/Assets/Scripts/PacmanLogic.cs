@@ -39,5 +39,6 @@ public class PacmanLogic : MonoBehaviour
         this.spriteRenderer.enabled = true;
         this.collider.enabled = true;
         this.gameObject.SetActive(true);
+        this.gameObject.transform.position = new Vector3(0, -8.5f, -5);
     }
 }
