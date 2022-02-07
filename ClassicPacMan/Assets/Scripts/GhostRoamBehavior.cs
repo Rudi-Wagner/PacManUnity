@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class GhostRoamBehavior : GhostBehavior
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D othernode)
     {
-        
+        NodeLogic node = othernode.GetComponent<NodeLogic>();
+        if (node != null && this.enabled && !this.ghost.flee.enabled)
+        {
+            int i = Random.Range(0, node.allowedDirection.Count);
+            if (node.allowedDirection[i] == -this.ghost.movement.direction)
+            {
+                i++;
+                if(i >= node.allowedDirection.Count)
+                {
+                    i= 0;
+                }
+            }
+            this.ghost.movement.SetDirection(node.allowedDirection[i]);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        this.ghost.chase.Enable();
     }
 }
