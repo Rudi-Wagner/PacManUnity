@@ -120,7 +120,9 @@ public class GameManager : MonoBehaviour
     public void eatPowerUp(PowerUp powerUp)
     {
         eatPellet(powerUp);
-
-        //change ghost
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
+            this.ghosts[i].flee.Enable(5.0f);
+        }
     }
 }

@@ -4,15 +4,103 @@ using UnityEngine;
 
 public class GhostFleeBehavior : GhostBehavior
 {
-    // Start is called before the first frame update
-    void Start()
+    public SpriteRenderer body;
+    public SpriteRenderer eyes;
+    public SpriteRenderer blue;
+    public SpriteRenderer white;
+
+    public bool eaten { get; private set;}
+
+    public new void Enable(float dur)
     {
-        
+        base.Enable(dur);
+        this.body.enabled = false;
+        this.eyes.enabled = false;
+        this.blue.enabled = true;
+        this.white.enabled = false;
+
+        Invoke(nameof(Blink), dur / 2.0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    public new void Disable()
     {
-        
+        base.Disable();
+
+        this.body.enabled = true;
+        this.eyes.enabled = true;
+        this.blue.enabled = false;
+        this.white.enabled = false;
+    }
+
+    private void Eaten()
+    {
+        this.eaten = true;
+        Vector3 pos = this.ghost.home.inside.position;
+        pos.z = this.ghost.transform.position.z;
+        this.ghost.transform.position = pos;
+        this.ghost.home.Enable(20.0f);
+
+        this.body.enabled = false;
+        this.eyes.enabled = true;
+        this.blue.enabled = false;
+        this.white.enabled = false;
+    }
+
+    private void Blink()
+    {
+        if (!this.eaten)
+        {
+            this.blue.enabled = false;
+            this.white.enabled = true; 
+            this.white.GetComponent<AnimatedSprite>().Restart();
+        }
+    }
+
+    private void OnEnable()
+    {
+        this.ghost.movement.speedMult = 0.5f;
+        this.eaten = false;
+    }
+
+    private void OnDisable()
+    {
+        this.ghost.movement.speedMult = 1.0f;
+        this.eaten = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        NodeLogic node = other.GetComponent<NodeLogic>();
+
+        if (node != null && this.enabled)
+        {
+            Vector2 direction = Vector2.zero;
+            float maxDistance = float.MinValue;
+
+            foreach (Vector2 allowedDirection in node.allowedDirection)
+            {
+                Vector3 newPosition = this.transform.position + new Vector3(allowedDirection.x, allowedDirection.y);
+                float distance = (this.ghost.target.position - newPosition).sqrMagnitude;
+
+                if (distance > maxDistance)
+                {
+                    direction = allowedDirection;
+                    maxDistance = distance;
+                }
+            }
+
+            this.ghost.movement.SetDirection(direction);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("pacman"))
+        {
+            if (this.enabled)
+            {
+                Eaten();
+            }
+        }
     }
 }
