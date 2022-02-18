@@ -7,9 +7,17 @@ public class GhostHomeBehavior : GhostBehavior
     public Transform inside;
     public Transform outside;
   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.enabled && collision.gameObject.layer == LayerMask.NameToLayer("walls")) {
+            this.ghost.movement.SetDirection(-this.ghost.movement.direction);
+        }
+    }
+
     private void OnEnable()
     {
         StopAllCoroutines();
+        this.ghost.movement.SetDirection(Vector2.left, false);
     }
 
     private void OnDisable()

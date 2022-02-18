@@ -13,11 +13,21 @@ public class GameManager : MonoBehaviour
 
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
-    public int lives = 3;
+    public int lives = 0;
     
     private void Start()
     {
-        NewGame();
+        this.pacman.gameObject.SetActive(false);
+
+        for (int i = 0; i < this.ghosts.Length; i++)
+        {
+            this.ghosts[i].gameObject.SetActive(false);
+        }
+
+        foreach (Transform pellet in this.pellets) {
+            pellet.gameObject.SetActive(false);
+        }
+        this.gameOverText.text = "Start new Game!";
     }
 
     private void Update()
@@ -55,13 +65,13 @@ public class GameManager : MonoBehaviour
     {
         //this.pacman.DeathSequence();
         this.pacman.gameObject.SetActive(false);
-        this.gameOverText.text = "GAME OVER!";
+        this.gameOverText.text = "DIED!";
         SetLives(this.lives - 1);
 
         if (this.lives > 0) {
             Invoke(nameof(ResetState), 3.0f);
         } else {
-            //GameOver();
+            this.gameOverText.text = "Game Over!";
         }
     }
 

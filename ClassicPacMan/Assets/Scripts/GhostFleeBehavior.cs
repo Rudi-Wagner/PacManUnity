@@ -38,7 +38,7 @@ public class GhostFleeBehavior : GhostBehavior
         Vector3 pos = this.ghost.home.inside.position;
         pos.z = this.ghost.transform.position.z;
         this.ghost.transform.position = pos;
-        this.ghost.home.Enable(20.0f);
+        this.ghost.home.Enable(this.duration + Random.Range(0, 10));
 
         this.body.enabled = false;
         this.eyes.enabled = true;
