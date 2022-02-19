@@ -8,6 +8,7 @@ public class Ghost : MonoBehaviour
     public GhostChaseBehavior chase { get; private set;}
     public GhostRoamBehavior roam { get; private set;}
     public GhostFleeBehavior flee { get; private set;}
+    public string type;
     public GhostBehavior initial;
     public Transform target;
 

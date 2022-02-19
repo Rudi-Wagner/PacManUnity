@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
     public int lives = 0;
+    public bool immortal = false;
     
     private void Start()
     {
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
             this.ghosts[i].gameObject.SetActive(false);
         }
 
-        foreach (Transform pellet in this.pellets) {
+        foreach (Transform pellet in this.pellets) 
+        {
             pellet.gameObject.SetActive(false);
         }
         this.gameOverText.text = "Start new Game!";
@@ -32,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Space)) {
+        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Space)) 
+        {
             NewGame();
         }
     }
@@ -46,7 +49,8 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
-        foreach (Transform pellet in this.pellets) {
+        foreach (Transform pellet in this.pellets) 
+        {
             pellet.gameObject.SetActive(true);
         }
 
@@ -63,15 +67,17 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
-        //this.pacman.DeathSequence();
-        this.pacman.gameObject.SetActive(false);
-        this.gameOverText.text = "DIED!";
-        SetLives(this.lives - 1);
+        if (!immortal)
+        {
+            //this.pacman.DeathSequence();
+            this.pacman.gameObject.SetActive(false);
+            this.gameOverText.text = "DIED!";
+            SetLives(this.lives - 1);
 
-        if (this.lives > 0) {
-            Invoke(nameof(ResetState), 3.0f);
-        } else {
-            this.gameOverText.text = "Game Over!";
+            if (this.lives > 0) 
+            {
+                Invoke(nameof(ResetState), 3.0f);
+            }
         }
     }
 

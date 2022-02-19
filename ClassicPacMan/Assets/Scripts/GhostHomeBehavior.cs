@@ -10,7 +10,7 @@ public class GhostHomeBehavior : GhostBehavior
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (this.enabled && collision.gameObject.layer == LayerMask.NameToLayer("walls")) {
-            this.ghost.movement.SetDirection(-this.ghost.movement.direction);
+            this.ghost.movement.SetDirection(-this.ghost.movement.direction, true);
         }
     }
 
