@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(MovementLogic))]
 public class PacmanLogic : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer { get; private set; }
     public new Collider2D collider { get; private set; }
     public MovementLogic movement { get; private set; }
+    public Vector2 joyInput { get; private set; }
 
     private void Awake()
     {
@@ -16,7 +17,8 @@ public class PacmanLogic : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+        //Only on PC
+        /*if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             this.movement.SetDirection(Vector2.up);
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
@@ -27,10 +29,33 @@ public class PacmanLogic : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             this.movement.SetDirection(Vector2.right);
-        }
+        }*/
 
         float angle = Mathf.Atan2(this.movement.direction.y, this.movement.direction.x);
         this.transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
+    }
+
+    private void OnMove(InputValue value)
+    {
+        joyInput = value.Get<Vector2>();
+
+        //Get Vector2 to move (Up, Down, Left, Right)
+        if(joyInput.y >= 0.5f)
+        {
+            this.movement.SetDirection(Vector2.up);
+        } else if(joyInput.y <= -0.5f)
+        {
+            this.movement.SetDirection(Vector2.down);
+        } else if(joyInput.x >= 0.5f)
+        {
+            this.movement.SetDirection(Vector2.right);
+        } else if(joyInput.x <= -0.5f)
+        {
+            this.movement.SetDirection(Vector2.left);
+        }
+
+        
+        Debug.Log("X: " + joyInput.x + ", Y: " + joyInput.y);
     }
 
     public void ResetState()

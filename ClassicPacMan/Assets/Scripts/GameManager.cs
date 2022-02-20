@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Space)) 
+        if (this.lives <= 0 /*&& Input.GetKeyDown(KeyCode.Space)*/) 
         {
             NewGame();
         }
