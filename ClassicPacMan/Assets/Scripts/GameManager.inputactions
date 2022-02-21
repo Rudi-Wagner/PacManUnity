@@ -1,0 +1,45 @@
+{
+    "name": "GameManager",
+    "maps": [
+        {
+            "name": "GameStart",
+            "id": "16ba6d98-9c7b-437e-81bc-c0cab05efd6c",
+            "actions": [
+                {
+                    "name": "ButtonPress",
+                    "type": "Value",
+                    "id": "4dbef63b-e71a-455f-a7eb-9c13fc07eb06",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0400d685-73e4-4a7a-8807-fb81451e9e99",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d46e9239-9c16-4017-b844-035a610c1bd3",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

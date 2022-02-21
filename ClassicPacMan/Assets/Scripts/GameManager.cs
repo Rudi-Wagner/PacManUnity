@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI gameOverText;
+    public GameObject startButton;
 
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
@@ -29,19 +30,20 @@ public class GameManager : MonoBehaviour
         {
             pellet.gameObject.SetActive(false);
         }
-        this.gameOverText.text = "Start new Game!";
+        this.gameOverText.text = "Start a new Game!";
     }
 
-    private void Update()
+    public void Update()
     {
-        if (this.lives <= 0 /*&& Input.GetKeyDown(KeyCode.Space)*/) 
+        if(lives <= 0)
         {
-            NewGame();
+            this.startButton.SetActive(true);
         }
     }
 
-    private void NewGame()
+    public void NewGame()
     {
+        this.startButton.SetActive(false);
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -76,7 +78,19 @@ public class GameManager : MonoBehaviour
 
             if (this.lives > 0) 
             {
-                Invoke(nameof(ResetState), 3.0f);
+                Invoke(nameof(ResetState), 2.0f);
+            }
+            else
+            {
+                this.gameOverText.text = "GAME OVER!";
+                for (int i = 0; i < this.ghosts.Length; i++)
+                {
+                    this.ghosts[i].gameObject.SetActive(false);
+                }
+                foreach (Transform pellet in this.pellets) 
+                {
+                    pellet.gameObject.SetActive(false);
+                }
             }
         }
     }
