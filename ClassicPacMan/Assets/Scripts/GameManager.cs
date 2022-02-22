@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     public Transform pellets;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highscoreText;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI gameOverText;
     public GameObject startButton;
 
     public int ghostMultiplier { get; private set; } = 1;
     public int score { get; private set; }
+    public int highscore { get; private set; }
     public int lives = 0;
     public bool immortal = false;
     
@@ -71,8 +73,7 @@ public class GameManager : MonoBehaviour
     {
         if (!immortal)
         {
-            //this.pacman.DeathSequence();
-            this.pacman.gameObject.SetActive(false);
+            this.pacman.deathAnimation();
             this.gameOverText.text = "DIED!";
             SetLives(this.lives - 1);
 
@@ -127,6 +128,14 @@ public class GameManager : MonoBehaviour
     {
         pellet.gameObject.SetActive(false);
         SetScore(this.score + pellet.points);
+
+        //Check for Highscore
+        if(this.score > this.highscore)
+        {
+            this.highscore = this.score;
+            this.highscoreText.text = "Highscore: " + this.highscore.ToString();
+        }
+
         //Check if round is finished 
         if(!remainingPellets())
         {
