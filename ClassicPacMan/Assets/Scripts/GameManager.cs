@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         {
             pellet.gameObject.SetActive(false);
         }
+        highscore = PlayerPrefs.GetInt("HighScore");
+        this.highscoreText.text = "Highscore: " + this.highscore.ToString();
         this.gameOverText.text = "Start a new Game!";
     }
 
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
         string txt = "Lives: ";
         for(int i = 0; i < this.lives; i++)
         {
-            txt += "<3";
+            txt += "<sprite=0> ";
         }
         this.livesText.text = txt;
     }
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             this.highscore = this.score;
             this.highscoreText.text = "Highscore: " + this.highscore.ToString();
+            PlayerPrefs.SetInt("HighScore", highscore);
         }
 
         //Check if round is finished 
