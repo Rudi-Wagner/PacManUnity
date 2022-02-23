@@ -42,27 +42,6 @@ public class PacmanLogic : MonoBehaviour
         this.transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    public void OnMove(InputValue value)
-    {
-        Debug.Log("InputSystem???????");
-        /*joyInput = value.Get<Vector2>();
-
-        //Get Vector2 to move (Up, Down, Left, Right)
-        if(joyInput.y >= 0.5f)
-        {
-            this.movement.SetDirection(Vector2.up);
-        } else if(joyInput.y <= -0.5f)
-        {
-            this.movement.SetDirection(Vector2.down);
-        } else if(joyInput.x > 0.5f)
-        {
-            this.movement.SetDirection(Vector2.right);
-        } else if(joyInput.x < -0.5f)
-        {
-            this.movement.SetDirection(Vector2.left);
-        }*/
-    }
-
     public void ResetState()
     {
         this.enabled = true;
@@ -80,6 +59,7 @@ public class PacmanLogic : MonoBehaviour
     private void OnEnable()
     {
         this.input.Enable();
+        this.movement.speedMult = this.movement.manager.mainSpeedMult;
     }
 
     private void OnDisable()

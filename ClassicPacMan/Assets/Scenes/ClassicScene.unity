@@ -9875,6 +9875,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1558926310}
     - target: {fileID: 6175329767992769299, guid: fbb1d9116d2841545897fc4995840d9f, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1882690056}
+    - target: {fileID: 6175329767992769299, guid: fbb1d9116d2841545897fc4995840d9f, type: 3}
       propertyPath: initialDirection.y
       value: 0
       objectReference: {fileID: 0}
@@ -10186,6 +10190,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
+  manager: {fileID: 1882690056}
 --- !u!114 &1107875858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10476,6 +10481,10 @@ PrefabInstance:
       propertyPath: ghosts.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9172909951869959602, guid: d26705bfacbd01341b83335224ad8fa8, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1882690056}
     - target: {fileID: 9172909951869959602, guid: d26705bfacbd01341b83335224ad8fa8, type: 3}
       propertyPath: initialDirection.x
       value: -1
@@ -11407,6 +11416,7 @@ MonoBehaviour:
   livesText: {fileID: 1175893020}
   gameOverText: {fileID: 1649857426}
   startButton: {fileID: 800332847205512136}
+  mainSpeedMult: 1
   lives: 0
   immortal: 0
 --- !u!4 &1882690057
@@ -11497,6 +11507,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3654894140225836303, guid: 0fbd7abdaaa13e04abd231f9f042bc30, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1882690056}
     - target: {fileID: 3654894140225836303, guid: 0fbd7abdaaa13e04abd231f9f042bc30, type: 3}
       propertyPath: initialDirection.y
       value: 0
@@ -12026,6 +12040,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+    - target: {fileID: 5004869360208940619, guid: 8b93710f9e10169458a63000afcd2920, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1882690056}
     - target: {fileID: 5004869360208940619, guid: 8b93710f9e10169458a63000afcd2920, type: 3}
       propertyPath: initialDirection.y
       value: 0

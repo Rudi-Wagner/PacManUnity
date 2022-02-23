@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject startButton;
 
     public int ghostMultiplier { get; private set; } = 1;
+    public float mainSpeedMult;
     public int score { get; private set; }
     public int highscore { get; private set; }
     public int lives = 0;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         this.startButton.SetActive(false);
+        this.mainSpeedMult = 0.5f;
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             pellet.gameObject.SetActive(true);
         }
-
+        this.mainSpeedMult += 0.5f;
         ResetState();
     }
 

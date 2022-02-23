@@ -9,6 +9,7 @@ public class MovementLogic : MonoBehaviour
     public LayerMask wallLayer;
 
     public new Rigidbody2D rigidbody { get; private set; }
+    public GameManager manager;
     public Vector2 direction { get; private set; }
     public Vector2 nextDirection { get; private set; }
     public Vector3 startPos { get; private set; }
@@ -26,7 +27,6 @@ public class MovementLogic : MonoBehaviour
 
     public void ResetMovement()
     {
-        this.speedMult = 1.0f;
         this.direction = this.initialDirection;
         this.nextDirection = Vector2.zero;
         this.transform.position = this.startPos;

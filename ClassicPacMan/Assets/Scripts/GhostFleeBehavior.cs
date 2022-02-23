@@ -64,7 +64,7 @@ public class GhostFleeBehavior : GhostBehavior
 
     private void OnDisable()
     {
-        this.ghost.movement.speedMult = 1.0f;
+        this.ghost.movement.speedMult = this.ghost.movement.manager.mainSpeedMult;
         this.eaten = false;
     }
 

@@ -44,6 +44,11 @@ public class Ghost : MonoBehaviour
         }
     }
 
+    private void OnEnabel()
+    {
+        this.movement.speedMult = this.movement.manager.mainSpeedMult;
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("pacman"))
