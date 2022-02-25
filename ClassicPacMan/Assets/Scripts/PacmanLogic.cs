@@ -44,6 +44,7 @@ public class PacmanLogic : MonoBehaviour
 
     public void ResetState()
     {
+        this.movement.SetDirection(Vector2.zero);
         this.enabled = true;
         this.spriteRenderer.enabled = true;
         this.collider.enabled = true;
@@ -53,7 +54,27 @@ public class PacmanLogic : MonoBehaviour
 
     public void deathAnimation()
     {
+        this.collider.enabled = false;
+        this.movement.SetDirection(Vector2.zero);
+        this.transform.rotation = Quaternion.AngleAxis(90 * Mathf.Rad2Deg, Vector3.forward);
+        this.normal.enabled = false;
+        this.normal.doLoop = false;
+        this.death.enabled = true;
+        this.death.Restart();
+        this.death.doLoop = false;
+        this.movement.enabled = false;
+        Invoke(nameof(die), 1.0f);
+    }
+
+    private void die()
+    {
         this.gameObject.SetActive(false);
+        this.collider.enabled = true;
+        this.normal.enabled = true;
+        this.normal.doLoop = true;
+        this.death.enabled = false;
+        this.death.doLoop = false;
+        this.movement.enabled = true;
     }
 
     private void OnEnable()

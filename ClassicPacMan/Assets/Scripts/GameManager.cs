@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class GameManager : MonoBehaviour
     public Transform pellets;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI roundText;
     public TextMeshProUGUI highscoreText;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI gameOverText;
     public GameObject startButton;
 
+    public int round { get; private set; } = 0;
     public int ghostMultiplier { get; private set; } = 1;
     public float mainSpeedMult;
     public int score { get; private set; }
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         this.startButton.SetActive(false);
         this.mainSpeedMult = 0.5f;
+        this.round = 0;
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -57,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
+        this.round++;
+        this.roundText.text = "Round: " + round;
         foreach (Transform pellet in this.pellets) 
         {
             pellet.gameObject.SetActive(true);
@@ -168,5 +174,10 @@ public class GameManager : MonoBehaviour
         {
             this.ghosts[i].flee.Enable(5.0f);
         }
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
