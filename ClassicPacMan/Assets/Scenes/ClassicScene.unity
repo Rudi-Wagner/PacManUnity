@@ -9893,6 +9893,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb1d9116d2841545897fc4995840d9f, type: 3}
+--- !u!1 &1012330052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253864772626071128, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+  m_PrefabInstance: {fileID: 5102749644753711814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1012330056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012330052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4521b41668bb7489049094050977cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 200
 --- !u!1 &1034995329
 GameObject:
   m_ObjectHideFlags: 0
@@ -10012,7 +10030,6 @@ GameObject:
   - component: {fileID: 1107875858}
   - component: {fileID: 1107875854}
   - component: {fileID: 1107875856}
-  - component: {fileID: 1107875859}
   m_Layer: 6
   m_Name: PacMan
   m_TagString: Untagged
@@ -10206,36 +10223,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53eff19764642d74abd26ebdc45cdacd, type: 3}
   - {fileID: 0}
   delay: 0.1
---- !u!114 &1107875859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107875844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8f86380ee1750274996815d498b625ce, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1175893018
 GameObject:
   m_ObjectHideFlags: 0
@@ -11375,7 +11362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1882690057}
   - component: {fileID: 1882690056}
-  - component: {fileID: 1882690058}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -11402,6 +11388,7 @@ MonoBehaviour:
   - {fileID: 1558926313}
   pacman: {fileID: 1107875854}
   pellets: {fileID: 377357338}
+  specialFood: {fileID: 1012330056}
   scoreText: {fileID: 1470730904}
   roundText: {fileID: 927236268}
   highscoreText: {fileID: 1363374702}
@@ -11426,36 +11413,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1882690058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882690055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: cec28fbd93573814796ce7563089413c, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: GameStart
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &1915205580
 PrefabInstance:
   m_ObjectHideFlags: 0

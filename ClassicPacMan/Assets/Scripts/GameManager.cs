@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public Ghost[] ghosts;
     public PacmanLogic pacman;
     public Transform pellets;
+    public SpecialFoodLogic specialFood;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI roundText;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public int round { get; private set; } = 0;
     public int ghostMultiplier { get; private set; } = 1;
-    public float mainSpeedMult;
+    public float mainSpeedMult = 0.5f;
     public int score { get; private set; }
     public int highscore { get; private set; }
     public int lives = 0;
@@ -174,6 +175,26 @@ public class GameManager : MonoBehaviour
         {
             this.ghosts[i].flee.Enable(5.0f);
         }
+    }
+
+    public void eatSpecialFood(SpecialFoodLogic food)
+    {
+        food.gameObject.SetActive(false);
+        SetScore(this.score + food.points);
+
+        //Check for Highscore
+        if(this.score > this.highscore)
+        {
+            this.highscore = this.score;
+            this.highscoreText.text = "Highscore: " + this.highscore.ToString();
+            PlayerPrefs.SetInt("HighScore", highscore);
+        }
+        Invoke(nameof(respawnFood), 100.0f);
+    }
+
+    private void respawnFood()
+    {
+        specialFood.gameObject.SetActive(true);
     }
 
     public void LoadMenu()
