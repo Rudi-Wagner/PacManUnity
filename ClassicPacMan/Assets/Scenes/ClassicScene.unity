@@ -3940,7 +3940,7 @@ Tilemap:
   - m_RefCount: 76
     m_Data: {fileID: 7499445975178959809, guid: 67b312825ffcbf44a8fc846384863eb9, type: 3}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.11764707, g: 0.8431373, b: 0.37647063, a: 1}
   m_Origin: {x: -13, y: -15, z: 0}
   m_Size: {x: 26, y: 28, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -9911,6 +9911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 200
+  sprites:
+  - {fileID: 21300000, guid: 2a29de4cbb6555c40a65771113d1b7ce, type: 3}
+  - {fileID: 21300000, guid: db7152c2fe08d624fa8fff21e8622ae3, type: 3}
+  - {fileID: 21300000, guid: 61a195ff1f458ea44bfce3b39118fb4d, type: 3}
 --- !u!1 &1034995329
 GameObject:
   m_ObjectHideFlags: 0
@@ -12189,9 +12193,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 770036559293700466, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 770036559293700466, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2970201516535309834, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970201516535309834, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970201516535309834, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970201516535309834, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2970201516535309834, guid: 7703a52a4a7566e459e22809ff6ebb61, type: 3}
       propertyPath: m_LocalPosition.x
