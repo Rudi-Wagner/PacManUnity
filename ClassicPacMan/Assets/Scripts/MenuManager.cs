@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour
         this.bestRound = PlayerPrefs.GetInt("MenuBestRound");
         this.roundText.text = "Best Round: " + this.bestRound.ToString();
     }
-
+    
     public void LoadClassic()
     {
         SceneManager.LoadScene("ClassicScene");
