@@ -28,4 +28,10 @@ public class MenuSpecialFruit : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
+
+    public void Reset(float randomY)
+    {
+        this.gameObject.SetActive(true);
+        this.transform.position = new Vector3(0, randomY, 0);
+    }
 }

@@ -27,9 +27,9 @@ public class MenuPacMan : MonoBehaviour
         this.movement.SetDirection(Vector2.left);
     }
 
-    public void Reset()
+    public void Reset(float randomY)
     {
         this.movement.SetDirection(Vector2.zero);
-        this.transform.position = new Vector3(-50, -5, 0);
+        this.transform.position = new Vector3(-50, randomY, 0);
     }
 }
