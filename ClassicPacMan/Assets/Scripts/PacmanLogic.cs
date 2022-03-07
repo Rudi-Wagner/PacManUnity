@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PacmanLogic : MonoBehaviour
 {
@@ -50,6 +51,10 @@ public class PacmanLogic : MonoBehaviour
         this.collider.enabled = true;
         this.gameObject.SetActive(true);
         this.gameObject.transform.position = new Vector3(0, -8.5f, -5);
+        if (SceneManager.GetActiveScene().name == "AdvancedScene")
+        {
+            this.gameObject.transform.position = new Vector3(0, -6.5f, -5);
+        }
     }
 
     public void deathAnimation()

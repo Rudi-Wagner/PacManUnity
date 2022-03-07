@@ -32,7 +32,6 @@ public class GhostHomeBehavior : GhostBehavior
     private IEnumerator ExitProcess()
     {
         this.ghost.movement.SetDirection(Vector2.up, true);
-        //this.ghost.movement.rigidbody.isKinematic = true;
         this.ghost.movement.enabled = false;
 
         Vector3 pos = this.transform.position;
