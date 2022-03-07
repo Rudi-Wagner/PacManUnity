@@ -11,6 +11,8 @@ public class SpecialFoodLogic : MonoBehaviour
     private void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
+        this.gameObject.SetActive(false);
+        Invoke(nameof(spawnFood), 50.0f);
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +25,11 @@ public class SpecialFoodLogic : MonoBehaviour
     public void OnEnable()
     {
         this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+    }
+
+    public void spawnFood()
+    {
+        this.gameObject.SetActive(true);
     }
 
     protected virtual void destroyPellet()

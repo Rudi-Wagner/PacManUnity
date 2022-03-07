@@ -16,7 +16,7 @@ public class MenuAnimation : MonoBehaviour
 
     public void starting()
     {
-        float randomY = Random.Range(-17.0f, 17.0f);
+        float randomY = Random.Range(-15.0f, 15.0f);
         this.ghost.Reset(randomY);
         this.pacman.Reset(randomY);
         this.specialFood.Reset(randomY);
