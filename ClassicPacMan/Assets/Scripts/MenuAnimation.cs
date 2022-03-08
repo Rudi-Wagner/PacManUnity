@@ -16,7 +16,7 @@ public class MenuAnimation : MonoBehaviour
 
     public void starting()
     {
-        float randomY = Random.Range(-15.0f, 15.0f);
+        float randomY = Random.Range(-12.0f, 12.0f);
         this.ghost.Reset(randomY);
         this.pacman.Reset(randomY);
         this.specialFood.Reset(randomY);
@@ -28,7 +28,7 @@ public class MenuAnimation : MonoBehaviour
     public void ending()
     {
         this.ghost.transform.position = new Vector3(50, -5, 0);
-        this.pacman.transform.position = new Vector3(55, -5, 0);
+        this.pacman.transform.position = new Vector3(60, -5, 0);
         this.ghost.endChase();
         this.pacman.endChase();
         Invoke(nameof(starting), 10.0f + Random.Range(10.0f, 20.0f));

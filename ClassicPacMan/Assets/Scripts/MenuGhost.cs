@@ -34,6 +34,6 @@ public class MenuGhost : MonoBehaviour
         this.eyes.enabled = true;
         this.blue.enabled = false;
         this.movement.SetDirection(Vector2.zero);
-        this.transform.position = new Vector3(-55, randomY, 0);
+        this.transform.position = new Vector3(-60, randomY, 0);
     }
 }
