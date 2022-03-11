@@ -33,4 +33,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("AdvancedScene");
     }
+
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
 }
