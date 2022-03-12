@@ -1,5 +1,5 @@
 {
-    "name": "ClassicPacMan",
+    "name": "InputController",
     "maps": [
         {
             "name": "Player",
@@ -20,6 +20,17 @@
                     "name": "",
                     "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3dc5f462-c026-43a5-82bf-fb6fe0ecc391",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

@@ -7,8 +7,8 @@ public class PacmanLogic : MonoBehaviour
     public SpriteRenderer spriteRenderer { get; private set; }
     public new Collider2D collider { get; private set; }
     public MovementLogic movement { get; private set; }
-    public Vector2 joyInput { get; private set; }
     public InputController input { get; private set; }
+    public Vector2 arrowKeysInput;
 
     public AnimatedSprite normal;
     public AnimatedSprite death;
@@ -23,21 +23,41 @@ public class PacmanLogic : MonoBehaviour
 
     private void Update()
     {
-        joyInput = this.input.Player.Move.ReadValue<Vector2>();
+        Vector2 joyInput = this.input.Player.Move.ReadValue<Vector2>();
+
         //Get Vector2 to move (Up, Down, Left, Right)
-        if(joyInput.y >= 0.5f)
-        {
-            this.movement.SetDirection(Vector2.up);
-        } else if(joyInput.y <= -0.5f)
-        {
-            this.movement.SetDirection(Vector2.down);
-        } else if(joyInput.x > 0.5f)
-        {
-            this.movement.SetDirection(Vector2.right);
-        } else if(joyInput.x < -0.5f)
-        {
-            this.movement.SetDirection(Vector2.left);
+        if(PlayerPrefs.GetInt("Controls") == 0)
+        {//Use Joystick
+            if(joyInput.y >= 0.5f)
+            {
+                this.movement.SetDirection(Vector2.up);
+            } else if(joyInput.y <= -0.5f)
+            {
+                this.movement.SetDirection(Vector2.down);
+            } else if(joyInput.x > 0.5f)
+            {
+                this.movement.SetDirection(Vector2.right);
+            } else if(joyInput.x < -0.5f)
+            {
+                this.movement.SetDirection(Vector2.left);
+            }
+        } else if(PlayerPrefs.GetInt("Controls") == 1)
+        {//Use arrow keys
+            if(arrowKeysInput.y == 1)  
+            {
+                this.movement.SetDirection(Vector2.up);
+            } else if(arrowKeysInput.y == -1)
+            {
+                this.movement.SetDirection(Vector2.down);
+            } else if(arrowKeysInput.x == 1f)
+            {
+                this.movement.SetDirection(Vector2.right);
+            } else if(arrowKeysInput.x == -1f)
+            {
+                this.movement.SetDirection(Vector2.left);
+            }
         }
+        
 
         float angle = Mathf.Atan2(this.movement.direction.y, this.movement.direction.x);
         this.transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);

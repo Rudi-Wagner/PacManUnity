@@ -6,8 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public int controlMode { get; private set; }
     public Toggle joystickToggle;
     public Toggle arrowKeysToggle;
+
+    private void Start()
+    {
+        this.controlMode = PlayerPrefs.GetInt("Controls");
+        if(this.controlMode == 0)
+        {//Load Joystick
+            this.joystickToggle.isOn = true;
+            this.arrowKeysToggle.isOn = false;
+        }else if(this.controlMode == 1)
+        {//Load Arrow Keys
+            this.joystickToggle.isOn = false;
+            this.arrowKeysToggle.isOn = true;
+        }
+    }
 
     public void LoadMenu()
     {
@@ -16,19 +31,11 @@ public class SettingsMenu : MonoBehaviour
 
     public void ToggleJoystick()
     {
-        if (this.joystickToggle.isOn)
-        {
-            this.arrowKeysToggle.isOn = false;
-        }
-        Debug.Log("JOYSTICK " + this.joystickToggle.isOn);
+        PlayerPrefs.SetInt("Controls", 0);
     }
 
     public void ToggleArrowKeys()
     {
-        if (this.arrowKeysToggle.isOn)
-        {
-            this.joystickToggle.isOn = false;
-        }
-        Debug.Log("ARROWKEYS " + this.arrowKeysToggle.isOn);
+        PlayerPrefs.SetInt("Controls", 1);
     }
 }
