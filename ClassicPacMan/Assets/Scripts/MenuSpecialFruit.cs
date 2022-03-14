@@ -6,6 +6,7 @@ public class MenuSpecialFruit : MonoBehaviour
 {
     public Sprite[] sprites;
     public SpriteRenderer spriteRenderer { get; private set; }
+    public int easterEggNum = 4;
 
     private void Awake()
     {
@@ -21,7 +22,18 @@ public class MenuSpecialFruit : MonoBehaviour
 
     public void OnEnable()
     {
-        this.spriteRenderer.sprite = this.sprites[Random.Range(0, this.sprites.Length)];
+        this.spriteRenderer.sprite = this.sprites[Random.Range(0, getEasterEggs())];
+    }
+
+    private int getEasterEggs()
+    {
+        int highscore = PlayerPrefs.GetInt("MenuHighScore");
+        while (highscore >= 3000)
+        {
+            highscore -= 3000;
+            easterEggNum++;
+        }
+        return easterEggNum;
     }
 
     private void destroyPellet()
