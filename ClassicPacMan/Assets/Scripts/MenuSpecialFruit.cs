@@ -33,6 +33,10 @@ public class MenuSpecialFruit : MonoBehaviour
             highscore -= 3000;
             easterEggNum++;
         }
+        if (easterEggNum > sprites.Length)
+        {
+            easterEggNum = sprites.Length;
+        }
         return easterEggNum;
     }
 

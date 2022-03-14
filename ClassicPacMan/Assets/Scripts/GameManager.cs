@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour
         {
             this.startButton.SetActive(true);
         }
+
+        if (immortal)
+        {
+            for (int i = 0; i < this.ghosts.Length; i++)
+            {
+                this.ghosts[i].flee.Enable(5.0f);
+            }
+        }
     }
 
     public void NewGame()
@@ -74,7 +82,7 @@ public class GameManager : MonoBehaviour
         {
             pellet.gameObject.SetActive(true);
         }
-        this.mainSpeedMult += 0.5f;
+        this.mainSpeedMult += 0.25f;
         ResetState();
     }
 
@@ -82,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         int points = ghost.points * this.ghostMultiplier;
         SetScore(this.score + points);
-
+        checkForHighScore();
         this.ghostMultiplier++;
     }
 

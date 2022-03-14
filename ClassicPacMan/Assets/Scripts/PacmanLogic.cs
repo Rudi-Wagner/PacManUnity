@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections.Generic;
 
 public class PacmanLogic : MonoBehaviour
 {
@@ -62,6 +64,8 @@ public class PacmanLogic : MonoBehaviour
         float angle = Mathf.Atan2(this.movement.direction.y, this.movement.direction.x);
         this.transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
+
+    
 
     public void ResetState()
     {
