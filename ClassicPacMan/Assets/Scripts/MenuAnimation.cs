@@ -8,6 +8,8 @@ public class MenuAnimation : MonoBehaviour
     public MenuPacMan pacman;
     public MenuSpecialFruit specialFood;
 
+    //Randomly starts a short animation in the menu/settings screen
+
     private void Start()
     {
         this.specialFood.gameObject.SetActive(false);
@@ -16,6 +18,7 @@ public class MenuAnimation : MonoBehaviour
 
     public void starting()
     {
+        //A ghost chasing pacman to the right and spawn a food item to eat
         float randomY = Random.Range(-12.0f, 12.0f);
         this.ghost.Reset(randomY);
         this.pacman.Reset(randomY);
@@ -27,6 +30,7 @@ public class MenuAnimation : MonoBehaviour
 
     public void ending()
     {
+        //Pacman chasing a ghost to the left
         this.ghost.transform.position = new Vector3(50, -5, 0);
         this.pacman.transform.position = new Vector3(60, -5, 0);
         this.ghost.endChase();

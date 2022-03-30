@@ -520,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 7278271636958597307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3111167478870694027}
@@ -592,8 +592,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doLoop: 1
   sprites:
-  - {fileID: 21300000, guid: 7031ccde0b7585f4593ec9ccd2626e05, type: 3}
-  - {fileID: 21300000, guid: a66fca21a2eaf43459e2fbb561e630d6, type: 3}
-  - {fileID: 21300000, guid: 7031ccde0b7585f4593ec9ccd2626e05, type: 3}
-  - {fileID: 21300000, guid: 0046507bc33d04343a6bcbf90288aff2, type: 3}
+  - {fileID: 21300000, guid: b1d51128280b80f4f930aeeaa039016a, type: 3}
+  - {fileID: 21300000, guid: 1f3f2350a7633a843883a6c5036dcef2, type: 3}
+  - {fileID: 21300000, guid: 5ecaf615b828d5941a968f6b461cafb9, type: 3}
+  - {fileID: 21300000, guid: 8675c9ac2cd41974cb42f3cdb5dbbfd2, type: 3}
+  - {fileID: 21300000, guid: d9f64306cb26fc44d94a6c444e054ccf, type: 3}
+  - {fileID: 21300000, guid: 970172dcc3f89dd4da114d8b66ea129d, type: 3}
+  - {fileID: 21300000, guid: 8c117b4edf0bd9b4787a8ff38a89f9ae, type: 3}
+  - {fileID: 21300000, guid: 9fd37e0eb0b6a2747bb6c385fc807f77, type: 3}
+  - {fileID: 21300000, guid: b6806f07d1c0690419d4ee0fe6055f56, type: 3}
+  - {fileID: 21300000, guid: c54c39ba8907d1f4ead57eea85c2a229, type: 3}
+  - {fileID: 21300000, guid: e77829d3c2199a742a3cae816c5bfbd6, type: 3}
+  - {fileID: 21300000, guid: 998076d6a1a6ea44fb05f2fc2074e7e0, type: 3}
+  - {fileID: 21300000, guid: 45a2d9a99154a394bb810455417becd3, type: 3}
+  - {fileID: 21300000, guid: e37cee3dcf914164aa9fdbdbba239029, type: 3}
+  - {fileID: 21300000, guid: 7c94cd80364920f4baa7315f2fe908e5, type: 3}
+  - {fileID: 21300000, guid: 27e823779e5058d4fb5d5183060af6f0, type: 3}
   delay: 0.25

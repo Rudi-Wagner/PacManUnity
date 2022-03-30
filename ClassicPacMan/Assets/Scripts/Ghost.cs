@@ -18,6 +18,7 @@ public class Ghost : MonoBehaviour
     }
     private void Awake()
     {
+        //Get all Components for ghost object
         this.movement = GetComponent<MovementLogic>();
         this.home = GetComponent<GhostHomeBehavior>();
         this.chase = GetComponent<GhostChaseBehavior>();
@@ -27,6 +28,7 @@ public class Ghost : MonoBehaviour
 
     public void Reset()
     {
+        //Reset every aspect to a "normal" state
         this.gameObject.SetActive(true);
         this.movement.ResetMovement();
 
@@ -51,6 +53,7 @@ public class Ghost : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        //Collision with pacman to check what to do
         if (col.gameObject.layer == LayerMask.NameToLayer("pacman"))
         {
             if (this.flee.enabled)

@@ -7,6 +7,8 @@ public class GhostHomeBehavior : GhostBehavior
     public Transform inside;
     public Transform outside;
   
+    //Let the ghost leave after the given time
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (this.enabled && collision.gameObject.layer == LayerMask.NameToLayer("walls")) {

@@ -9,6 +9,9 @@ public class ArrowKeysController : MonoBehaviour
     public GameManager manager;
     public PacmanLogic pacman;
 
+    //Set Vector accroding to input
+    //Also check for secret KonamiCode input
+
     public void up()
     {
         this.input = new Vector2(0, 1);
@@ -39,7 +42,8 @@ public class ArrowKeysController : MonoBehaviour
 
     private void KonamiCode(string direction)
     {
-        //up, up, down, down, left, right, left, right
+        //Little secret to find
+        //Konami code: up, up, down, down, left, right, left, right
         string[] check = new string[8]{"up", "up", "down", "down", "left", "right", "left", "right"};
         if (direction != check[currentKonami])
         {

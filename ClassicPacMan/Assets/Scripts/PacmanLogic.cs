@@ -25,8 +25,8 @@ public class PacmanLogic : MonoBehaviour
 
     private void Update()
     {
+        //Movement input from the player
         Vector2 joyInput = this.input.Player.Move.ReadValue<Vector2>();
-
         //Get Vector2 to move (Up, Down, Left, Right)
         if(PlayerPrefs.GetInt("Controls") == 0)
         {//Use Joystick
@@ -69,6 +69,7 @@ public class PacmanLogic : MonoBehaviour
 
     public void ResetState()
     {
+        //Reset pacman to a "normal" state
         this.movement.SetDirection(Vector2.zero);
         this.enabled = true;
         this.spriteRenderer.enabled = true;
@@ -83,6 +84,7 @@ public class PacmanLogic : MonoBehaviour
 
     public void deathAnimation()
     {
+        //Play death animation after collision with a ghost
         this.collider.enabled = false;
         this.movement.SetDirection(Vector2.zero);
         this.transform.rotation = Quaternion.AngleAxis(90 * Mathf.Rad2Deg, Vector3.forward);
@@ -97,6 +99,7 @@ public class PacmanLogic : MonoBehaviour
 
     private void die()
     {
+        //Disable player controls
         this.gameObject.SetActive(false);
         this.collider.enabled = true;
         this.normal.enabled = true;

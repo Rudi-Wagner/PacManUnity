@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostRoamBehavior : GhostBehavior
 {
+    //Randomly choose the next direction to go (exception is right back where the gohst originally came from)
+
     private void OnTriggerEnter2D(Collider2D othernode)
     {
         NodeLogic node = othernode.GetComponent<NodeLogic>();

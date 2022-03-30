@@ -8,6 +8,8 @@ public class MenuSpecialFruit : MonoBehaviour
     public SpriteRenderer spriteRenderer { get; private set; }
     public int easterEggNum = 4;
 
+    //Food from the menu animation
+
     private void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,6 +29,7 @@ public class MenuSpecialFruit : MonoBehaviour
 
     private int getEasterEggs()
     {
+        //Allow more images for the food item, when reached a certain Highscore
         int highscore = PlayerPrefs.GetInt("MenuHighScore");
         while (highscore >= 3000)
         {

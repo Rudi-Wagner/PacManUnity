@@ -13,6 +13,7 @@ public abstract class GhostBehavior : MonoBehaviour
         this.enabled = false;
     }
 
+    //Switch Ghost behavior after delay
     public void Enable()
     {
         Enable(this.duration);

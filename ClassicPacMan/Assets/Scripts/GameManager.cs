@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        //Setup the playing field
         this.pacman.gameObject.SetActive(false);
 
         for (int i = 0; i < this.ghosts.Length; i++)
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        //Start new Round (after death)
         this.startButton.SetActive(false);
         this.mainSpeedMult = 0.5f;
         this.round = 0;
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
+        //Start new Round (after death / when eaten all pellets)
         this.round++;
         this.roundText.text = "Round: " + round;
         foreach (Transform pellet in this.pellets) 
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void GhostEaten(Ghost ghost)
     {
+        //Reward points (with multiplier) for eating a ghost
         int points = ghost.points * this.ghostMultiplier;
         SetScore(this.score + points);
         checkForHighScore();
@@ -96,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
+        //Setup if the player dies
         if (!immortal)
         {
             this.pacman.deathAnimation();
@@ -123,6 +128,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetState()
     {
+        //Reset ghosts and pacman
         this.pacman.ResetState();
         this.gameOverText.text = "";
         for (int i = 0; i < this.ghosts.Length; i++)
@@ -133,6 +139,7 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives)
     {
+        //Display correct amount of lives
         this.lives = lives;
         string txt = "Lives: ";
         for(int i = 0; i < this.lives; i++)
@@ -144,6 +151,7 @@ public class GameManager : MonoBehaviour
 
     private void SetScore(int score)
     {
+        //Display current score
         this.score = score;
         this.scoreText.text = "Score: " + score.ToString();
     }
@@ -151,6 +159,7 @@ public class GameManager : MonoBehaviour
 
     public void eatPellet(PelletLogic pellet)
     {
+        //Reward points and delete pellet
         pellet.gameObject.SetActive(false);
         SetScore(this.score + pellet.points);
         checkForHighScore();
@@ -164,7 +173,8 @@ public class GameManager : MonoBehaviour
     }
 
     private bool remainingPellets()
-    {//Check if there are remaining pellets to eat.
+    {
+        //Check if there are remaining pellets to eat.
         foreach (Transform pellet in this.pellets) 
         {
             if(pellet.gameObject.activeSelf)
@@ -177,6 +187,7 @@ public class GameManager : MonoBehaviour
 
     public void eatPowerUp(PowerUp powerUp)
     {
+        //Set ghosts into the "fleeing" state
         eatPellet(powerUp);
         for (int i = 0; i < this.ghosts.Length; i++)
         {
@@ -186,6 +197,7 @@ public class GameManager : MonoBehaviour
 
     public void eatSpecialFood(SpecialFoodLogic food)
     {
+        //Reward points for special food
         food.gameObject.SetActive(false);
         SetScore(this.score + food.points);
         checkForHighScore();

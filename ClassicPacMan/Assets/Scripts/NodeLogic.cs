@@ -7,7 +7,8 @@ public class NodeLogic : MonoBehaviour
     public List<Vector2> allowedDirection { get; private set;}
     public LayerMask wallLayer;
 
-    // Start is called before the first frame update
+    //Get every possible direction to move from a node
+
     void Start()
     {
         this.allowedDirection = new List<Vector2>();

@@ -18,7 +18,7 @@ public class GhostEyesLogic : MonoBehaviour
         this.movement = GetComponentInParent<MovementLogic>();
     }
 
-    // Update is called once per frame
+    //Lets the goes look at the player
     void Update()
     {
         if (this.movement.direction == Vector2.up) {
@@ -33,24 +33,5 @@ public class GhostEyesLogic : MonoBehaviour
         else if (this.movement.direction == Vector2.right) {
             this.render.sprite = this.right;
         }
-
-        /*switch (this.movement.direction)
-        {
-            case Vector2.up:
-            this.renderer.sprite = this.up;
-            break;
-
-            case Vector2.down:
-            this.renderer.sprite = this.down;
-            break;
-
-            case Vector2.left:
-            this.renderer.sprite = this.left;
-            break;
-
-            case Vector2.right:
-            this.renderer.sprite = this.right;
-            break;
-        }*/
     }
 }

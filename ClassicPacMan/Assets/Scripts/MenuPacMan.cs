@@ -6,6 +6,8 @@ public class MenuPacMan : MonoBehaviour
 {
     public MovementLogic movement { get; private set;}
 
+    //Pacman from the menu animation
+
     private void Awake()
     {
         this.movement = GetComponent<MovementLogic>();

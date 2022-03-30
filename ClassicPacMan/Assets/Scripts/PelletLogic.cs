@@ -7,7 +7,8 @@ public class PelletLogic : MonoBehaviour
     public int points = 10;
 
     protected void OnTriggerEnter2D(Collider2D other)
-    {//Only pacman is allowed to "collide" / eat the pelllets
+    {
+        //Only pacman is allowed to "collide" / eat the pelllets
         if (other.gameObject.layer == LayerMask.NameToLayer("pacman")) {
             destroyPellet();
         }

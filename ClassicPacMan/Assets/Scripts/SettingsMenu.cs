@@ -27,6 +27,7 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    //Buttonlogic
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -44,6 +45,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void ResetData()
     {
+        //Reset all gamedata
         resetCNT++;
         if (resetCNT >= 2)
         {

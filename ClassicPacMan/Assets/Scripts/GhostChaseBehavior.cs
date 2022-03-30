@@ -10,6 +10,7 @@ public class GhostChaseBehavior : GhostBehavior
 
     private void OnTriggerEnter2D(Collider2D othernode)
     {
+        //Set Ghost behaviour according to ghost type/colour
         switch (this.ghost.type)
         {
             case "red":
@@ -45,6 +46,7 @@ public class GhostChaseBehavior : GhostBehavior
     private void calculateRED(Collider2D othernode)
     {
         //Red Ghost AI
+        //Chases the player directly
         NodeLogic node = othernode.GetComponent<NodeLogic>();
         if (node != null && this.enabled && !this.ghost.flee.enabled)
         {
@@ -67,6 +69,7 @@ public class GhostChaseBehavior : GhostBehavior
     private void calculateBLUE(Collider2D othernode)
     {
         //Blue Ghost AI
+        //Position is calcualted with the player position and the red gjost position
         NodeLogic node = othernode.GetComponent<NodeLogic>();
         if (node != null && this.enabled && !this.ghost.flee.enabled)
         {
@@ -113,6 +116,7 @@ public class GhostChaseBehavior : GhostBehavior
     private void calculatePINK(Collider2D othernode)
     {
         //Pink Ghost AI
+        //Moves in front of the player
         NodeLogic node = othernode.GetComponent<NodeLogic>();
         if (node != null && this.enabled && !this.ghost.flee.enabled)
         {
@@ -154,6 +158,7 @@ public class GhostChaseBehavior : GhostBehavior
     private void calculateORANGE(Collider2D othernode)
     {
         //Orange Ghost AI
+        //First moves to the player, if close enough it goes away
         NodeLogic node = othernode.GetComponent<NodeLogic>();
         if (node != null && this.enabled && !this.ghost.flee.enabled)
         {

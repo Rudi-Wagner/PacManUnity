@@ -14,6 +14,8 @@ public class MenuManager : MonoBehaviour
     public int highscore { get; private set; }
     public int bestRound { get; private set; }
 
+    //Update the absoulute highscore and best round
+
     private void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -24,6 +26,8 @@ public class MenuManager : MonoBehaviour
         this.roundText.text = "Best Round: " + this.bestRound.ToString();
     }
     
+    //Buttonlogic
+
     public void LoadClassic()
     {
         SceneManager.LoadScene("ClassicScene");

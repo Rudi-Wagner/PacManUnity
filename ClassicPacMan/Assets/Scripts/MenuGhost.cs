@@ -10,6 +10,8 @@ public class MenuGhost : MonoBehaviour
 
     public MovementLogic movement { get; private set;}
 
+    //Ghost from the menu animation
+
     private void Awake()
     {
         this.movement = GetComponent<MovementLogic>();

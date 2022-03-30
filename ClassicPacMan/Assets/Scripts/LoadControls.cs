@@ -8,6 +8,8 @@ public class LoadControls : MonoBehaviour
     public GameObject joyStick;
     public GameObject arrowKeys;
 
+    //Switch displayed controle type according to the settings
+
     private void Start()
     {
         this.controlMode = PlayerPrefs.GetInt("Controls");

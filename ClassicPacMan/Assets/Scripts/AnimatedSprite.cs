@@ -29,11 +29,13 @@ public class AnimatedSprite : MonoBehaviour
 
         this.currentFrame++;
 
+        //Set currentFrame back to 0 to loop the animation
         if (this.currentFrame >= this.sprites.Length && this.doLoop) 
         {
             this.currentFrame = 0;
         }
 
+        //Set the actual sprite of the object
         if (this.currentFrame >= 0 && this.currentFrame < this.sprites.Length) 
         {
             this.spriteRenderer.sprite = this.sprites[this.currentFrame];
@@ -42,6 +44,7 @@ public class AnimatedSprite : MonoBehaviour
 
     public void Restart()
     {
+        //Set currentFrame to -1 to start the next time at 0
         this.currentFrame = -1;
         changeSprite();
     }

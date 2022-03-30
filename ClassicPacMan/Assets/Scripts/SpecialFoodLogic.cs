@@ -8,6 +8,8 @@ public class SpecialFoodLogic : MonoBehaviour
     public Sprite[] sprites = new Sprite[0];
     public SpriteRenderer spriteRenderer { get; private set; }
 
+    //Randomly spawn Food in the middle of the map
+
     private void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();

@@ -11,6 +11,10 @@ public class GhostFleeBehavior : GhostBehavior
 
     public bool eaten { get; private set;}
 
+    //Sets the ghosts in the "fleeing" state
+    //During this state the gohsts move away from the player
+    //The state is only a short time active, then it switches back to normal
+
     public new void Enable(float dur)
     {
         base.Enable(dur);
@@ -34,6 +38,7 @@ public class GhostFleeBehavior : GhostBehavior
 
     private void Eaten()
     {
+        //Change ghost sprites
         this.eaten = true;
         Vector3 pos = this.ghost.home.inside.position;
         pos.z = this.ghost.transform.position.z;
@@ -48,6 +53,7 @@ public class GhostFleeBehavior : GhostBehavior
 
     private void Blink()
     {
+        //Blink to give a visual cue to the player, that the phase is almost over
         if (!this.eaten)
         {
             this.blue.enabled = false;
