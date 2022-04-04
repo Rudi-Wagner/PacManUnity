@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         NewRound();
-        checkForBestRound();
     }
 
     private void NewRound()
@@ -87,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
         this.mainSpeedMult += 0.25f;
         ResetState();
+        checkForBestRound();
     }
 
     public void GhostEaten(Ghost ghost)

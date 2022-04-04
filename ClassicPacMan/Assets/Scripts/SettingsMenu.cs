@@ -12,10 +12,12 @@ public class SettingsMenu : MonoBehaviour
     public Toggle arrowKeysToggle;
     private int resetCNT = 0;
     public TextMeshProUGUI resetText;
+    public TextMeshProUGUI buildVersion;
 
     private void Start()
     {
         this.controlMode = PlayerPrefs.GetInt("Controls");
+        this.buildVersion.text = "Build Version: " + Application.version;
         if(this.controlMode == 0)
         {//Load Joystick
             this.joystickToggle.isOn = true;
