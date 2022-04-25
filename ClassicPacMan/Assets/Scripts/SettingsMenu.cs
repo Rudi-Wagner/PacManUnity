@@ -35,6 +35,11 @@ public class SettingsMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void ToggleJoystick()
     {
         PlayerPrefs.SetInt("Controls", 0);
