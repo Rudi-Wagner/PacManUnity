@@ -25,7 +25,7 @@ Das Ziel des Spiels ist es, alle Punkte im Labyrinth zu sammeln, während man vo
 Dieses Projekt ist ein Pac-Man Clone für Android-Smartphones.
 Es basiert auf das klassische Original von 1980 aus Japan, daher ist das Grundkonzept das gleiche. Auch die Künstliche Intelligenz, also das Verhalten der Geister, funktioniert ähnlich.
 
-In dieser Version gibt es auch einen Cheat-Code, der den Spieler unverwundbar macht, dieser ist der Konami-Code. Also ↑↑  ↓↓ ←→ ←→.
+In dieser Version gibt es auch einen Cheat-Code, der den Spieler unverwundbar macht, dieser ist der Konami-Code. Also ↑↑  ↓↓ ←→ ←→, dieser funktioniert allerdings nur mit den Pfeiltasten.
 
 
 ### Technologien
